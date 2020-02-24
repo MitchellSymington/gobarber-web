@@ -1,0 +1,9 @@
+ 1202  docker run --name database -e POSTGRES_PASSWORD=gobarber -p 5432:5432 -d postgres:11
+ 1203  docker ps -a
+ 1204  docker run --name mongobarber -p 27017:27017 -d -t mongo
+ 1205  docker run --name redisbarber -p 6379:6379 -d -t redis:alpine
+ 1206  docker start database
+ 1207  docker start mongobarber
+ 1208  docker start redisbarber
+ 1209  history | tail -9 docker_comand_create_base
+ 1210  ls -lrt
