@@ -1,2 +1,1 @@
 # gobarber-web
-# gobarber
