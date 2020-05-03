@@ -10,7 +10,7 @@ import {
   setMilliseconds,
   isBefore,
   isEqual,
-  parseISO
+  parseISO,
 } from 'date-fns';
 import { utcToZonedTime } from 'date-fns-tz';
 import pt from 'date-fns/locale/pt';
@@ -32,21 +32,24 @@ export default function Dashboard() {
   useEffect(() => {
     async function loadSchedule() {
       const response = await api.get('schedule', {
-        params: { date }
+        params: { date },
       });
 
       const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
       const data = range.map(hour => {
-        const checkDate = setMilliseconds(setSeconds(setMinutes(setHours(date, hour), 0), 0), 0);
+        const checkDate = setMilliseconds(
+          setSeconds(setMinutes(setHours(date, hour), 0), 0),
+          0
+        );
         const compareDate = utcToZonedTime(checkDate, timezone);
 
         return {
           time: `${hour}:00h`,
           past: isBefore(compareDate, new Date()),
           appointment: response.data.find(a =>
-            isEqual(parseISO(a.date),compareDate)
-          )
+            isEqual(parseISO(a.date), compareDate)
+          ),
         };
       });
       setSchedule(data);

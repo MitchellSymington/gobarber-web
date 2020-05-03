@@ -38,9 +38,10 @@ export default function RouterWrapper({
 
 RouterWrapper.propTypes = {
   isPrivate: PropTypes.bool,
-  component: PropTypes.oneOfType([PropTypes.element, PropTypes.func]).isRequired
+  component: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
+    .isRequired,
 };
 
 RouterWrapper.defaultProps = {
-  isPrivate: false
+  isPrivate: false,
 };

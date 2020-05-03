@@ -17,7 +17,7 @@ export default function AvatarInput() {
       registerField({
         name: 'avatar_id',
         ref: ref.current,
-        path: 'dataset.file'
+        path: 'dataset.file',
       });
     }
   }, [ref, registerField]);

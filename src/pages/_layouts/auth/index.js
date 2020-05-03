@@ -11,5 +11,5 @@ export default function AuthLayout({ children }) {
 }
 
 AuthLayout.prototypes = {
-  children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
 };

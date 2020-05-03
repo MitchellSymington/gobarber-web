@@ -12,7 +12,7 @@ export function* signIn({ payload }) {
 
     const response = yield call(api.post, 'sessions', {
       email,
-      password
+      password,
     });
     const { token, user } = response.data;
 
@@ -40,7 +40,7 @@ export function* signUp({ payload }) {
       name,
       email,
       password,
-      provider: true
+      provider: true,
     });
     history.push('/');
   } catch (err) {
@@ -67,5 +67,5 @@ export default all([
   takeLatest('persist/REHYDRATE', setToken),
   takeLatest('@auth/SIGN_IN_REQUEST', signIn),
   takeLatest('@auth/SIGN_UP_REQUEST', signUp),
-  takeLatest('@auth/SIGN_OUT', signOut)
+  takeLatest('@auth/SIGN_OUT', signOut),
 ]);

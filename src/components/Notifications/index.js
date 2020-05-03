@@ -10,7 +10,7 @@ import {
   Badge,
   NotificationList,
   Scroll,
-  Notification
+  Notification,
 } from './styles';
 
 export default function Notifications() {
@@ -32,7 +32,7 @@ export default function Notifications() {
           parseISO(notification.createdAt),
           new Date(),
           { addSuffix: true, locale: pt }
-        )
+        ),
       }));
 
       setNotifications(data);
